@@ -24,4 +24,15 @@ public class StringCalculatorTest {
         //then
         Assertions.assertEquals(number, result);
     }
+
+    @Test
+    void shouldSum3Numbers() {
+        //given
+        String numbers = "1.23,2.34,3.45";
+        String expected = "7.02";
+        //when
+        String sum = new StringCalculator().add(numbers);
+        //then
+        Assertions.assertEquals(expected, sum);
+    }
 }
