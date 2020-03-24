@@ -6,6 +6,6 @@ public class StringCalculatorTest {
 
     @Test
     void shouldReturnZeroForEmpty() {
-
+        StringCalculator calc = new StringCalculator();
     }
 }
