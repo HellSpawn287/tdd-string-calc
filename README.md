@@ -8,3 +8,5 @@ Completed features:
 -Many numbers
 
 -New line as separator
+
+-Missing number in last position
