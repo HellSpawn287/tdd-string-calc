@@ -8,13 +8,12 @@ public class StringCalculatorTest {
     @Test
     void shouldReturnZeroForEmpty() {
         //given
-        StringCalculator calc = new StringCalculator();
         String empty = "";
 
         //when
-        String result = calc.add(empty);
+        String result = new StringCalculator().add(empty);
 
         //then
-        Assertions.assertEquals("", empty);
+        Assertions.assertEquals("0", result);
     }
 }
