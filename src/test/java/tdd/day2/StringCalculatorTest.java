@@ -7,6 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class StringCalculatorTest {
@@ -31,23 +32,20 @@ public class StringCalculatorTest {
         Assertions.assertEquals(number, result);
     }
 
-    @ParameterizedTest(name = "Summing for {1} + {2} + {3} is {0}")
+    @ParameterizedTest(name = "Summing for {1} is {0}")
     @CsvSource({
-               "7.02, 1.23, 2.34, 3.45",
-               "7.02002, 1.23002, 2.34, 3.45",
-               "-7.02, -1.23, -2.34, -3.45",
-               "7.02, 1.23, 2.34, 3.45",
+               "7.02, '1.23, 2.34, 3.45'",
+               "7.02002, '1.23002, 2.34, 3.45'",
+               "-7.02, '-1.23, -2.34, -3.45'",
+               "7.02, '1.23, 2.34, 3.45'",
+               "3.57, '1.23, 2.34'",
             }
     )
-    void shouldSum3Numbers(String expected, String number1, String number2, String number3) {
+    void shouldSumNumbers(String expected, String numbers) {
         //given
         //when
-        String sum = new StringCalculator().add(joinNumbers(number1, number2, number3));
+        String sum = new StringCalculator().add(numbers);
         //then
         Assertions.assertEquals(expected, sum);
-    }
-
-    private String joinNumbers(String number1, String number2, String number3) {
-        return Arrays.asList(number1, number2, number3).stream().collect(Collectors.joining(","));
     }
 }
