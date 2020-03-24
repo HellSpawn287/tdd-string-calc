@@ -48,4 +48,21 @@ public class StringCalculatorTest {
         //then
         Assertions.assertEquals(expected, sum);
     }
+
+    @ParameterizedTest(name = "Summing for {1} is {0}")
+    @CsvSource({
+            "7.02, '1.23\n 2.34\n 3.45'",
+            "7.02002, '1.23002\n2.34\n 3.45'",
+            "-7.02, '-1.23\n -2.34\n -3.45'",
+            "7.05, '1.23, 2.34\n 3.48'",
+            "3.57, '1.23\n 2.34'",
+    })
+    void shouldSumWithNewLineSeparator(String expected, String numbers) {
+        //given
+        //when
+        String sum = new StringCalculator().add(numbers);
+        //then
+        Assertions.assertEquals(expected, sum);
+
+    }
 }
