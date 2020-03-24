@@ -18,7 +18,7 @@ public class StringCalculator {
     private String sumMany(String number) {
         Optional<List<BigDecimal>> numbers = numberParser.parse(number);
 
-        if (numbers.isEmpty())
+        if (!numbers.isPresent())
             return numberParser.getError();
         else return addNumbers(numbers.get()).toString();
     }
