@@ -72,4 +72,17 @@ public class StringCalculatorTest {
         //then
         Assertions.assertEquals(expected, sum);
     }
+
+    @ParameterizedTest(name = "Summing for {1} is {0}")
+    @CsvSource({
+            "2.00, '1.00\n1.00\n'",
+            "2.00, '1.00\n1.00,'"
+    })
+    void shouldSumWithEmptyLastNumber(String expected, String numbers) {
+        //given
+        //when
+        String sum = new StringCalculator().add(numbers);
+        //then
+        Assertions.assertEquals(expected, sum);
+    }
 }
